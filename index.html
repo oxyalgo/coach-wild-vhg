@@ -1,0 +1,2920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coach Wild | Wildwige Chauvet - Vital Health Global</title>
+    <meta name="description" content="Join Coach Wild and build your health empire with Vital Health Global. Earn $1000+ per week with our proven system.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           COACH WILD — $10K PREMIUM LANDING PAGE V2
+           Dark Mode + Glassmorphism + Particles + Luxury
+           ============================================ */
+
+        :root {
+            --primary: #4ADE80;
+            --primary-dark: #22C55E;
+            --primary-glow: rgba(74, 222, 128, 0.3);
+            --accent-gold: #F5C842;
+            --accent-gold-glow: rgba(245, 200, 66, 0.25);
+            --navy: #0A1628;
+            --navy-light: #111D35;
+            --navy-card: #152238;
+            --navy-border: rgba(255,255,255,0.08);
+            --text: #F1F5F9;
+            --text-muted: #94A3B8;
+            --text-dim: #64748B;
+            --glass: rgba(21, 34, 56, 0.6);
+            --glass-border: rgba(255,255,255,0.1);
+            --glass-hover: rgba(255,255,255,0.15);
+            --gradient-hero: linear-gradient(135deg, #0A1628 0%, #1a2942 40%, #0f3d2e 100%);
+            --gradient-cta: linear-gradient(135deg, #22C55E, #4ADE80);
+            --gradient-gold: linear-gradient(135deg, #F5C842, #E8A317);
+            --shadow-xl: 0 25px 50px -12px rgba(0,0,0,0.5);
+            --shadow-glow: 0 0 40px rgba(74,222,128,0.15);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --radius-full: 9999px;
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+        body {
+            font-family: var(--font);
+            background: var(--navy);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* === SCROLL PROGRESS BAR === */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--gradient-cta);
+            z-index: 10000;
+            transition: width 0.1s linear;
+            will-change: width;
+        }
+
+        /* === ANIMATED BACKGROUND GRID === */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(74,222,128,0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(245,200,66,0.04) 0%, transparent 50%),
+                radial-gradient(circle at 50% 80%, rgba(74,222,128,0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* === GRAIN TEXTURE OVERLAY === */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            opacity: 0.015;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        section, header, footer { position: relative; z-index: 1; }
+
+        /* === LANGUAGE SWITCHER (TOP BAR) === */
+        .lang-bar {
+            position: fixed;
+            top: 3px;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            padding: 10px 20px;
+            background: rgba(10, 22, 40, 0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .lang-btn {
+            padding: 6px 18px;
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-full);
+            background: transparent;
+            color: var(--text-muted);
+            font-family: var(--font);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            letter-spacing: 0.5px;
+        }
+
+        .lang-btn:hover { border-color: var(--primary); color: var(--primary); }
+        .lang-btn.active {
+            background: var(--gradient-cta);
+            color: var(--navy);
+            border-color: transparent;
+            font-weight: 700;
+        }
+
+        /* === PARTICLE CANVAS === */
+        #particleCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* === HERO SECTION === */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 24px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated gradient mesh background */
+        .hero-mesh {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 50% at 20% 40%, rgba(74,222,128,0.12) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 80% at 80% 20%, rgba(34,197,94,0.08) 0%, transparent 50%),
+                radial-gradient(ellipse 70% 60% at 60% 80%, rgba(245,200,66,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 50% at 40% 60%, rgba(74,222,128,0.06) 0%, transparent 50%),
+                var(--gradient-hero);
+            animation: meshShift 20s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes meshShift {
+            0%, 100% { filter: hue-rotate(0deg) brightness(1); }
+            25% { filter: hue-rotate(5deg) brightness(1.05); }
+            50% { filter: hue-rotate(-5deg) brightness(0.95); }
+            75% { filter: hue-rotate(3deg) brightness(1.02); }
+        }
+
+        /* Animated circles */
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(74,222,128,0.08), transparent 70%);
+            top: -200px;
+            right: -200px;
+            animation: float 15s ease-in-out infinite;
+            z-index: 1;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(245,200,66,0.06), transparent 70%);
+            bottom: -100px;
+            left: -100px;
+            animation: float 20s ease-in-out infinite reverse;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.05); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+        }
+
+        /* Avatar with animated ring */
+        .hero-avatar-wrap {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 28px;
+            width: 170px;
+            height: 170px;
+        }
+
+        .hero-avatar-ring {
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, var(--primary), var(--accent-gold), var(--primary-dark), var(--primary));
+            animation: ringRotate 4s linear infinite;
+            will-change: transform;
+        }
+
+        @keyframes ringRotate {
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-avatar-ring-inner {
+            position: absolute;
+            inset: 2px;
+            border-radius: 50%;
+            background: var(--navy);
+        }
+
+        .hero-avatar {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            z-index: 1;
+            box-shadow: 0 0 60px rgba(74,222,128,0.2), 0 0 120px rgba(74,222,128,0.1);
+        }
+
+        /* Pulse ring behind avatar */
+        .avatar-pulse {
+            position: absolute;
+            inset: -20px;
+            border-radius: 50%;
+            border: 2px solid rgba(74,222,128,0.2);
+            animation: pulseRing 3s ease-out infinite;
+            z-index: -1;
+        }
+
+        .avatar-pulse:nth-child(2) {
+            animation-delay: 1s;
+        }
+        .avatar-pulse:nth-child(3) {
+            animation-delay: 2s;
+        }
+
+        @keyframes pulseRing {
+            0% { transform: scale(0.8); opacity: 1; }
+            100% { transform: scale(1.6); opacity: 0; }
+        }
+
+        /* Verified badge */
+        .verified-badge {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-cta);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+            border: 3px solid var(--navy);
+            box-shadow: 0 2px 12px rgba(74,222,128,0.4);
+        }
+
+        .verified-badge svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--navy);
+        }
+
+        .hero-name-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            border-radius: var(--radius-full);
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent-gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(135deg, #fff 0%, #94A3B8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+            text-shadow: none;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--text-muted);
+            max-width: 540px;
+            margin: 0 auto 12px;
+            position: relative;
+            z-index: 2;
+            font-weight: 300;
+        }
+
+        /* Shimmer animation on hero highlight */
+        .hero-highlight {
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 36px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-highlight span {
+            background: linear-gradient(90deg, #22C55E 0%, #4ADE80 40%, #F5C842 50%, #4ADE80 60%, #22C55E 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s ease-in-out infinite;
+            text-shadow: none;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        /* === CTA BUTTONS === */
+        .cta-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 40px;
+            background: var(--gradient-cta);
+            color: var(--navy);
+            font-family: var(--font);
+            font-size: 17px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: var(--radius-full);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 0 40px rgba(74,222,128,0.25), var(--shadow-xl);
+            position: relative;
+            z-index: 2;
+            letter-spacing: 0.3px;
+            overflow: hidden;
+        }
+
+        .cta-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-primary:hover::before {
+            left: 100%;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 0 60px rgba(74,222,128,0.4), 0 30px 60px -15px rgba(0,0,0,0.4);
+        }
+
+        .cta-primary:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+
+        .cta-primary svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+
+        .cta-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: transparent;
+            color: var(--text);
+            font-family: var(--font);
+            font-size: 15px;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: var(--radius-full);
+            border: 1px solid var(--glass-border);
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 16px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-secondary:hover {
+            border-color: var(--primary);
+            background: rgba(74,222,128,0.08);
+            transform: translateY(-2px);
+        }
+
+        /* === TRUST BAR === */
+        .trust-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .trust-item {
+            text-align: center;
+        }
+
+        .trust-item .number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .trust-item .label {
+            font-size: 12px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 4px;
+        }
+
+        /* === SECTION STYLING === */
+        .section {
+            padding: 100px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .section-label::before,
+        .section-label::after {
+            content: '';
+            width: 24px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff, #CBD5E1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+        .section-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            line-height: 1.7;
+            margin-bottom: 48px;
+        }
+
+        /* === GLASS CARDS === */
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(20px) saturate(150%);
+            -webkit-backdrop-filter: blur(20px) saturate(150%);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 32px;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* === ABOUT SECTION === */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: calc(var(--radius) + 3px);
+            background: var(--gradient-cta);
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        /* Achievement banner */
+        .achievement-banner {
+            background: linear-gradient(135deg, rgba(245,200,66,0.15), rgba(245,200,66,0.05));
+            border: 1px solid rgba(245,200,66,0.3);
+            border-radius: var(--radius-sm);
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .achievement-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--gradient-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .achievement-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--navy);
+        }
+
+        .achievement-text {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            line-height: 1.3;
+        }
+
+        .achievement-text small {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .branding-tag {
+            display: inline-block;
+            background: rgba(74,222,128,0.1);
+            border: 1px solid rgba(74,222,128,0.2);
+            border-radius: var(--radius-full);
+            padding: 6px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .stat-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-sm);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: var(--radius-sm);
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(74,222,128,0.3), transparent, rgba(245,200,66,0.2));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .stat-card .stat-value {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .stat-card .stat-label {
+            font-size: 12px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        /* === OPPORTUNITY SECTION === */
+        .opp-bg {
+            background: linear-gradient(180deg, var(--navy) 0%, var(--navy-light) 50%, var(--navy) 100%);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .benefit-card {
+            padding: 36px 28px;
+            position: relative;
+            border-left: 3px solid transparent;
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            border-left-color: var(--primary);
+            box-shadow: -4px 0 20px rgba(74,222,128,0.15);
+        }
+
+        .benefit-card-num {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            font-size: 3rem;
+            font-weight: 900;
+            color: rgba(74,222,128,0.06);
+            line-height: 1;
+            font-family: var(--font);
+        }
+
+        .benefit-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(74,222,128,0.15), rgba(34,197,94,0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .benefit-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--primary);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+
+        .benefit-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Stagger animations */
+        .benefit-card.visible { animation: fadeInUp 0.6s ease forwards; }
+        .benefit-card:nth-child(1) { animation-delay: 0s; }
+        .benefit-card:nth-child(2) { animation-delay: 0.1s; }
+        .benefit-card:nth-child(3) { animation-delay: 0.2s; }
+        .benefit-card:nth-child(4) { animation-delay: 0.3s; }
+        .benefit-card:nth-child(5) { animation-delay: 0.4s; }
+        .benefit-card:nth-child(6) { animation-delay: 0.5s; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* === PRODUCTS SECTION === */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .product-card {
+            text-align: center;
+            padding: 40px 24px 32px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+            transform-style: preserve-3d;
+            perspective: 800px;
+        }
+
+        .product-card:hover {
+            transform: perspective(800px) rotateY(-3deg) rotateX(2deg) translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 40px rgba(74,222,128,0.1);
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-cta);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .product-card:hover::before { opacity: 1; }
+
+        .product-icon-wrap {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(74,222,128,0.12), rgba(34,197,94,0.04));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            border: 1px solid rgba(74,222,128,0.15);
+        }
+
+        .product-icon-wrap svg {
+            width: 32px;
+            height: 32px;
+            stroke: var(--primary);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .product-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .product-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* === STEPS SECTION === */
+        .steps-container {
+            position: relative;
+        }
+
+        /* Horizontal timeline line (desktop) */
+        .steps-timeline {
+            display: none;
+        }
+
+        @media (min-width: 769px) {
+            .steps-timeline {
+                display: block;
+                position: absolute;
+                top: 60px;
+                left: 10%;
+                right: 10%;
+                height: 2px;
+                background: linear-gradient(90deg, transparent, var(--primary), var(--primary), transparent);
+                opacity: 0.3;
+                z-index: 0;
+            }
+        }
+
+        /* Vertical timeline line (mobile) */
+        @media (max-width: 768px) {
+            .steps-container::before {
+                content: '';
+                position: absolute;
+                left: 38px;
+                top: 40px;
+                bottom: 40px;
+                width: 2px;
+                background: linear-gradient(180deg, transparent, var(--primary), var(--primary), transparent);
+                opacity: 0.3;
+                z-index: 0;
+            }
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-card {
+            padding: 36px 28px;
+            position: relative;
+        }
+
+        .step-num {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 0 20px rgba(74,222,128,0.3);
+        }
+
+        .step-icon {
+            width: 36px;
+            height: 36px;
+            margin-bottom: 12px;
+        }
+
+        .step-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--text-muted);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .step-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            letter-spacing: -0.02em;
+        }
+
+        .step-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* === VIDEO SECTION === */
+        .video-section-bg {
+            background: linear-gradient(180deg, var(--navy) 0%, #0d2818 50%, var(--navy) 100%);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 32px;
+        }
+
+        .video-card {
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+        }
+
+        .video-card .video-thumb {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            cursor: pointer;
+            display: block;
+            text-decoration: none;
+            background: #000;
+        }
+
+        .video-card .video-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease, filter 0.4s ease;
+        }
+
+        .video-card .video-thumb:hover img {
+            transform: scale(1.05);
+            filter: brightness(0.7);
+        }
+
+        .video-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 72px;
+            height: 72px;
+            background: rgba(255,0,0,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, background 0.3s ease;
+            box-shadow: 0 4px 30px rgba(255,0,0,0.3);
+        }
+
+        .video-card .video-thumb:hover .video-play-btn {
+            transform: translate(-50%, -50%) scale(1.12);
+            background: rgba(255,0,0,1);
+        }
+
+        .video-play-btn svg {
+            width: 28px;
+            height: 28px;
+            fill: #fff;
+            margin-left: 4px;
+        }
+
+        .video-card iframe {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border: none;
+            display: block;
+        }
+
+        .video-card .video-info {
+            padding: 20px 24px;
+        }
+
+        .video-card .video-info h3 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* === INSTAGRAM GALLERY === */
+        .ig-section-bg {
+            background: linear-gradient(180deg, var(--navy) 0%, var(--navy-light) 50%, var(--navy) 100%);
+        }
+
+        .ig-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .ig-item {
+            position: relative;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            aspect-ratio: 1;
+            cursor: pointer;
+        }
+
+        .ig-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            will-change: transform;
+        }
+
+        .ig-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .ig-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 22, 40, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 16px;
+        }
+
+        .ig-item:hover .ig-overlay {
+            opacity: 1;
+        }
+
+        .ig-overlay svg {
+            width: 32px;
+            height: 32px;
+            fill: #fff;
+        }
+
+        .ig-follow-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #833AB4, #FD1D1D, #F77737);
+            color: #fff;
+            font-family: var(--font);
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: var(--radius-full);
+            margin-top: 32px;
+            transition: var(--transition);
+        }
+
+        .ig-follow-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(131,58,180,0.3);
+        }
+
+        .ig-follow-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* === TESTIMONIALS SECTION === */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .testimonial-card {
+            padding: 36px 28px;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-gold);
+            border-radius: var(--radius) var(--radius) 0 0;
+        }
+
+        .testimonial-quote-mark {
+            font-size: 4rem;
+            line-height: 1;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: Georgia, serif;
+            margin-bottom: 8px;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            color: var(--text);
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .testimonial-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .testimonial-role {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        /* === FAQ SECTION === */
+        .faq-tabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .faq-tab {
+            padding: 8px 20px;
+            border-radius: var(--radius-full);
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            font-family: var(--font);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .faq-tab:hover, .faq-tab.active {
+            background: rgba(74,222,128,0.1);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .faq-search-wrap {
+            position: relative;
+            max-width: 720px;
+            margin-bottom: 24px;
+        }
+
+        .faq-search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            color: var(--text-dim);
+        }
+
+        .faq-list {
+            max-width: 720px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq-item {
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-sm);
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            border-color: rgba(74,222,128,0.3);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text);
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-family: var(--font);
+            transition: var(--transition);
+        }
+
+        .faq-question:hover { color: var(--primary); }
+
+        .faq-arrow {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            color: var(--text-dim);
+            flex-shrink: 0;
+        }
+
+        .faq-item.open .faq-arrow { transform: rotate(180deg); color: var(--primary); }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+            padding: 0 24px 20px;
+        }
+
+        .faq-answer p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* === FINAL CTA === */
+        .final-cta {
+            text-align: center;
+            padding: 120px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 50% 50%, rgba(74,222,128,0.1) 0%, transparent 60%),
+                linear-gradient(180deg, var(--navy) 0%, #0d2818 50%, var(--navy) 100%);
+            animation: ctaBgPulse 6s ease-in-out infinite;
+        }
+
+        @keyframes ctaBgPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .final-cta h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff, #CBD5E1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
+            letter-spacing: -0.02em;
+            text-shadow: 0 0 60px rgba(74,222,128,0.2);
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 560px;
+            margin: 0 auto 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .countdown-bar {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 28px;
+            background: rgba(245,200,66,0.1);
+            border: 1px solid rgba(245,200,66,0.2);
+            border-radius: var(--radius-full);
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 1;
+            font-size: 14px;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .countdown-bar svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--accent-gold);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .countdown-digits {
+            font-family: var(--font);
+            font-variant-numeric: tabular-nums;
+            letter-spacing: 1px;
+        }
+
+        .final-cta .cta-primary {
+            font-size: 19px;
+            padding: 20px 48px;
+            animation: ctaPulse 2.5s ease-in-out infinite;
+        }
+
+        @keyframes ctaPulse {
+            0%, 100% { box-shadow: 0 0 40px rgba(74,222,128,0.25), var(--shadow-xl); }
+            50% { box-shadow: 0 0 60px rgba(74,222,128,0.5), 0 0 100px rgba(74,222,128,0.2), var(--shadow-xl); }
+        }
+
+        /* === FOOTER === */
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .footer-socials a {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .footer-socials a:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: rgba(74,222,128,0.1);
+            transform: translateY(-2px);
+        }
+
+        .footer-socials svg { width: 20px; height: 20px; fill: currentColor; }
+
+        .footer-legal {
+            font-size: 11px;
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* === FLOATING WHATSAPP WITH BADGE === */
+        .float-wa {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 999;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #25D366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+            transition: var(--transition);
+            text-decoration: none;
+            animation: waFloat 3s ease-in-out infinite;
+        }
+
+        .float-wa:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(37,211,102,0.5);
+        }
+
+        .float-wa svg { width: 32px; height: 32px; fill: #fff; }
+
+        .float-wa-badge {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #ef4444;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--navy);
+            animation: badgePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        @keyframes waFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* === SCROLL TO TOP === */
+        .scroll-top {
+            position: fixed;
+            bottom: 100px;
+            right: 32px;
+            z-index: 999;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .scroll-top:hover {
+            background: rgba(74,222,128,0.15);
+            border-color: var(--primary);
+        }
+
+        .scroll-top svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--text-muted);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        /* === SCROLL ANIMATIONS === */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger children on reveal */
+        .stagger-children.visible > * {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        .stagger-children > *:nth-child(1) { animation-delay: 0s; }
+        .stagger-children > *:nth-child(2) { animation-delay: 0.08s; }
+        .stagger-children > *:nth-child(3) { animation-delay: 0.16s; }
+        .stagger-children > *:nth-child(4) { animation-delay: 0.24s; }
+        .stagger-children > *:nth-child(5) { animation-delay: 0.32s; }
+        .stagger-children > *:nth-child(6) { animation-delay: 0.4s; }
+        .stagger-children > *:nth-child(7) { animation-delay: 0.48s; }
+        .stagger-children > *:nth-child(8) { animation-delay: 0.56s; }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .about-image { order: -1; }
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+            .trust-bar { gap: 24px; }
+            .hero { padding: 80px 20px 50px; }
+            .section { padding: 70px 20px; }
+            .hero-avatar-wrap { width: 130px; height: 130px; }
+            .hero-avatar { width: 120px; height: 120px; }
+            .ig-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .benefits-grid,
+            .products-grid,
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+            .lang-bar { gap: 2px; }
+            .lang-btn { padding: 6px 14px; font-size: 12px; }
+            .ig-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+        }
+
+        /* === SOCIAL PROOF POPUP === */
+        .social-proof {
+            position: fixed;
+            bottom: 100px;
+            left: 24px;
+            z-index: 998;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 20px 14px 14px;
+            background: rgba(15, 25, 45, 0.92);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            border-radius: 14px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 30px rgba(74,222,128,0.08);
+            transform: translateX(-120%);
+            opacity: 0;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+            max-width: 340px;
+            pointer-events: none;
+        }
+
+        .social-proof.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .social-proof-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--gradient-cta);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--navy);
+            flex-shrink: 0;
+        }
+
+        .social-proof-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .social-proof-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.3;
+        }
+
+        .social-proof-name strong {
+            color: var(--primary);
+        }
+
+        .social-proof-meta {
+            font-size: 11px;
+            color: var(--text-dim);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .social-proof-meta .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--primary);
+            animation: blink 1.5s ease-in-out infinite;
+        }
+
+        .social-proof-check {
+            color: var(--primary);
+            font-size: 16px;
+            margin-left: auto;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 480px) {
+            .social-proof {
+                left: 12px;
+                right: 12px;
+                bottom: 90px;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- SOCIAL PROOF POPUP -->
+<div class="social-proof" id="socialProof">
+    <div class="social-proof-avatar" id="spAvatar">MJ</div>
+    <div class="social-proof-content">
+        <div class="social-proof-name" id="spName"><strong>Marie J.</strong> just joined the team</div>
+        <div class="social-proof-meta"><span class="dot"></span> <span id="spTime">2 minutes ago</span> <span id="spLocation">- Miami, FL</span></div>
+    </div>
+    <span class="social-proof-check">&#x2713;</span>
+</div>
+
+<!-- SCROLL PROGRESS BAR -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- LANGUAGE SWITCHER -->
+<div class="lang-bar">
+    <button class="lang-btn active" onclick="setLang('en')">English</button>
+    <button class="lang-btn" onclick="setLang('ht')">Kreyol</button>
+    <button class="lang-btn" onclick="setLang('es')">Espanol</button>
+</div>
+
+<!-- FLOATING WHATSAPP WITH BADGE -->
+<a href="https://api.whatsapp.com/send?phone=5168380237&text=Hi%20Coach%20Wild!%20I%27m%20interested%20in%20the%20business%20opportunity." class="float-wa" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="float-wa-badge">1</span>
+</a>
+
+<!-- SCROLL TO TOP -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<!-- =================== HERO =================== -->
+<section class="hero">
+    <div class="hero-mesh"></div>
+    <canvas id="particleCanvas"></canvas>
+
+    <div class="hero-avatar-wrap">
+        <div class="avatar-pulse"></div>
+        <div class="avatar-pulse"></div>
+        <div class="avatar-pulse"></div>
+        <div class="hero-avatar-ring">
+            <div class="hero-avatar-ring-inner"></div>
+        </div>
+        <img src="https://ugc.production.linktr.ee/ce254678-7fe7-4eb0-b42f-8c7e4e57cfd3_IMG-2688.jpeg"
+             alt="Coach Wild - Wildwige Chauvet"
+             class="hero-avatar"
+             loading="eager"
+             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22160%22%3E%3Ccircle cx=%2280%22 cy=%2280%22 r=%2280%22 fill=%22%234ADE80%22/%3E%3Ctext x=%2280%22 y=%2290%22 font-size=%2260%22 text-anchor=%22middle%22 fill=%22%230A1628%22%3ECW%3C/text%3E%3C/svg%3E'">
+        <div class="verified-badge">
+            <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+        </div>
+    </div>
+
+    <div class="hero-badge">
+        <span data-i18n="hero_badge">Certified Business Coach</span>
+    </div>
+
+    <h1>Wildwige Chauvet</h1>
+
+    <p class="hero-subtitle" data-i18n="hero_subtitle">Your path to financial freedom starts with one conversation</p>
+
+    <p class="hero-highlight"><span data-i18n="hero_highlight">$1,000+ Per Week Potential</span></p>
+
+    <a href="https://api.whatsapp.com/send?phone=5168380237&text=Hi%20Coach%20Wild!%20I%27m%20interested%20in%20the%20business%20opportunity." class="cta-primary" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span data-i18n="cta_whatsapp">Message Coach Wild</span>
+    </a>
+
+    <a href="#opportunity" class="cta-secondary">
+        <span data-i18n="cta_learn">Learn How It Works</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+    </a>
+
+    <div class="trust-bar">
+        <div class="trust-item">
+            <div class="number" data-count="75000" data-suffix="K+">75K+</div>
+            <div class="label" data-i18n="trust_customers">Customers Worldwide</div>
+        </div>
+        <div class="trust-item">
+            <div class="number" data-count="18" data-suffix="+">18+</div>
+            <div class="label" data-i18n="trust_countries">Countries</div>
+        </div>
+        <div class="trust-item">
+            <div class="number" data-count="80" data-suffix="%">80%</div>
+            <div class="label" data-i18n="trust_margin">Profit Margins</div>
+        </div>
+        <div class="trust-item">
+            <div class="number" data-count="2.22" data-prefix="$">$2.22</div>
+            <div class="label" data-i18n="trust_start">To Get Started</div>
+        </div>
+    </div>
+</section>
+
+<!-- =================== ABOUT =================== -->
+<section class="section reveal" id="about">
+    <div class="about-grid">
+        <div>
+            <div class="branding-tag">Mouvman Chanjman Total</div>
+            <div class="section-label" data-i18n="about_label">About Coach Wild</div>
+            <h2 class="section-title" data-i18n="about_title">Your Guide to Financial Freedom</h2>
+
+            <div class="achievement-banner">
+                <div class="achievement-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <div class="achievement-text">
+                    <span data-i18n="achievement_text">$200,000+ in Business Revenue</span>
+                    <small data-i18n="achievement_sub">Proven track record of success</small>
+                </div>
+            </div>
+
+            <p class="section-desc" data-i18n="about_desc">Wildwige Chauvet, known as Coach Wild, is a dedicated business coach helping people build sustainable income through Vital Health Global. With passion, expertise, and a proven system, she has helped dozens of entrepreneurs launch their own wellness businesses from scratch.</p>
+            <div class="about-stats">
+                <div class="stat-card">
+                    <div class="stat-value" data-i18n="stat_team">Growing</div>
+                    <div class="stat-label" data-i18n="stat_team_label">Team Size</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" data-i18n="stat_coaching">Free</div>
+                    <div class="stat-label" data-i18n="stat_coaching_label">Coaching & Training</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" data-i18n="stat_products">400+</div>
+                    <div class="stat-label" data-i18n="stat_products_label">Employees Manufacturing</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" data-i18n="stat_support">24/7</div>
+                    <div class="stat-label" data-i18n="stat_support_label">Community Support</div>
+                </div>
+            </div>
+        </div>
+        <div class="about-image">
+            <img src="https://ugc.production.linktr.ee/ce254678-7fe7-4eb0-b42f-8c7e4e57cfd3_IMG-2688.jpeg"
+                 alt="Coach Wild"
+                 loading="lazy"
+                 onerror="this.parentElement.style.display='none'">
+        </div>
+    </div>
+</section>
+
+<!-- =================== OPPORTUNITY =================== -->
+<section class="opp-bg reveal" id="opportunity">
+    <div class="section" style="padding-top:0">
+        <div class="section-label" data-i18n="opp_label">The Opportunity</div>
+        <h2 class="section-title" data-i18n="opp_title">Why Vital Health Global?</h2>
+        <p class="section-desc" data-i18n="opp_desc">Unlike other companies, Vital Health Global owns its own manufacturing with 400+ employees. This means better products, higher margins, and more money in YOUR pocket.</p>
+
+        <div class="benefits-grid stagger-children">
+            <div class="card benefit-card">
+                <span class="benefit-card-num">01</span>
+                <div class="benefit-icon">
+                    <svg viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3 data-i18n="b1_title">Own Manufacturing</h3>
+                <p data-i18n="b1_desc">400+ employees, GMP-certified labs, no middleman. Quality you can trust, margins you can bank on.</p>
+            </div>
+            <div class="card benefit-card">
+                <span class="benefit-card-num">02</span>
+                <div class="benefit-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3 data-i18n="b2_title">Up to 80% Margins</h3>
+                <p data-i18n="b2_desc">Industry-leading profit margins. Keep more of every sale compared to any other wellness company.</p>
+            </div>
+            <div class="card benefit-card">
+                <span class="benefit-card-num">03</span>
+                <div class="benefit-icon">
+                    <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3 data-i18n="b3_title">Low Barrier to Entry</h3>
+                <p data-i18n="b3_desc">Start for just $2.22 with the current promotion. No big inventory, no risk, no pressure.</p>
+            </div>
+            <div class="card benefit-card">
+                <span class="benefit-card-num">04</span>
+                <div class="benefit-icon">
+                    <svg viewBox="0 0 24 24"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3 data-i18n="b4_title">Global Expansion</h3>
+                <p data-i18n="b4_desc">Active in 18+ countries and growing. Get in on the ground floor of the US expansion.</p>
+            </div>
+            <div class="card benefit-card">
+                <span class="benefit-card-num">05</span>
+                <div class="benefit-icon">
+                    <svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3 data-i18n="b5_title">Multiple Income Streams</h3>
+                <p data-i18n="b5_desc">Retail profits, influencer bonuses, team commissions, rank bonuses, car bonuses, and more.</p>
+            </div>
+            <div class="card benefit-card">
+                <span class="benefit-card-num">06</span>
+                <div class="benefit-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3 data-i18n="b6_title">Free Training & Support</h3>
+                <p data-i18n="b6_desc">Coach Wild provides personal coaching, live events, and a community of winners to support your journey.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =================== PRODUCTS =================== -->
+<section class="section reveal" id="products">
+    <div class="section-label" data-i18n="prod_label">Product Lines</div>
+    <h2 class="section-title" data-i18n="prod_title">Premium Wellness Products</h2>
+    <p class="section-desc" data-i18n="prod_desc">Clinically formulated with nanotechnology for maximum absorption. Products that sell themselves.</p>
+
+    <div class="products-grid">
+        <div class="card product-card">
+            <div class="product-icon-wrap">
+                <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 data-i18n="p1_title">Awaken</h3>
+            <p data-i18n="p1_desc">Energy and cognitive function. Start your day with clarity and focus.</p>
+        </div>
+        <div class="card product-card">
+            <div class="product-icon-wrap">
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 data-i18n="p2_title">Detox</h3>
+            <p data-i18n="p2_desc">Cleanse and purify. Support your body's natural detoxification systems.</p>
+        </div>
+        <div class="card product-card">
+            <div class="product-icon-wrap">
+                <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 data-i18n="p3_title">Nourish</h3>
+            <p data-i18n="p3_desc">Complete nutrition. Fill the gaps in your diet with premium supplements.</p>
+        </div>
+        <div class="card product-card">
+            <div class="product-icon-wrap">
+                <svg viewBox="0 0 24 24"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 data-i18n="p4_title">Restore</h3>
+            <p data-i18n="p4_desc">Recovery and renewal. Help your body heal and restore naturally.</p>
+        </div>
+    </div>
+</section>
+
+<!-- =================== HOW IT WORKS =================== -->
+<section class="opp-bg reveal" id="steps">
+    <div class="section" style="padding-top:0">
+        <div class="section-label" data-i18n="steps_label">How It Works</div>
+        <h2 class="section-title" data-i18n="steps_title">4 Simple Steps to Start Earning</h2>
+        <p class="section-desc" data-i18n="steps_desc">Coach Wild makes it simple. Follow the proven system and start building your income.</p>
+
+        <div class="steps-container">
+            <div class="steps-timeline"></div>
+            <div class="steps-grid">
+                <div class="card step-card">
+                    <div class="step-num">1</div>
+                    <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <h3 data-i18n="s1_title">Message Coach Wild</h3>
+                    <p data-i18n="s1_desc">Reach out on WhatsApp. Ask your questions. Get real answers from someone who's done it.</p>
+                </div>
+                <div class="card step-card">
+                    <div class="step-num">2</div>
+                    <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <h3 data-i18n="s2_title">Join for $2.22</h3>
+                    <p data-i18n="s2_desc">Use promo code MARCH222 to enroll as a Preferred Customer for just $2.22. Zero risk.</p>
+                </div>
+                <div class="card step-card">
+                    <div class="step-num">3</div>
+                    <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <h3 data-i18n="s3_title">Get Trained</h3>
+                    <p data-i18n="s3_desc">Access free coaching, live events, and a supportive community. Learn the proven system.</p>
+                </div>
+                <div class="card step-card">
+                    <div class="step-num">4</div>
+                    <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <h3 data-i18n="s4_title">Build & Earn</h3>
+                    <p data-i18n="s4_desc">Start selling products, build your team, and watch your income grow week after week.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =================== VIDEOS =================== -->
+<section class="video-section-bg reveal" id="videos">
+    <div class="section">
+        <div class="section-label" data-i18n="video_label">Watch & Learn</div>
+        <h2 class="section-title" data-i18n="video_title">See the Vision</h2>
+        <p class="section-desc" data-i18n="video_desc">Watch Coach Wild explain the opportunity in her own words.</p>
+
+        <div class="video-grid">
+            <div class="video-card">
+                <a href="https://www.youtube.com/watch?v=BUgQnVfU1Tg" target="_blank" rel="noopener" class="video-thumb" id="vt1">
+                    <img src="https://img.youtube.com/vi/BUgQnVfU1Tg/maxresdefault.jpg"
+                         alt="Coach Wild - Business Coaching"
+                         loading="lazy"
+                         onerror="this.src='https://img.youtube.com/vi/BUgQnVfU1Tg/hqdefault.jpg'">
+                    <div class="video-play-btn">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                </a>
+                <div class="video-info">
+                    <h3 data-i18n="v1_title">Earn $1000+ Extra Every Week with Coach Wild</h3>
+                </div>
+            </div>
+            <div class="video-card">
+                <a href="https://www.youtube.com/watch?v=WlepOSHLCNo" target="_blank" rel="noopener" class="video-thumb" id="vt2">
+                    <img src="https://img.youtube.com/vi/WlepOSHLCNo/maxresdefault.jpg"
+                         alt="Vital Health Global Opportunity"
+                         loading="lazy"
+                         onerror="this.src='https://img.youtube.com/vi/WlepOSHLCNo/hqdefault.jpg'">
+                    <div class="video-play-btn">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                </a>
+                <div class="video-info">
+                    <h3 data-i18n="v2_title">The Vital Health Global Opportunity</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =================== INSTAGRAM GALLERY =================== -->
+<section class="ig-section-bg reveal" id="instagram">
+    <div class="section">
+        <div class="section-label" data-i18n="ig_label">Social Proof</div>
+        <h2 class="section-title" data-i18n="ig_title">Follow Coach Wild</h2>
+        <p class="section-desc" data-i18n="ig_desc">See the journey, the results, and the lifestyle on Instagram.</p>
+
+        <div class="ig-grid stagger-children">
+            <a href="https://www.instagram.com/wildwigec" target="_blank" rel="noopener" class="ig-item">
+                <img src="assets/instagram/post_00.jpg" alt="Coach Wild Instagram" loading="lazy">
+                <div class="ig-overlay"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
+            </a>
+            <a href="https://www.instagram.com/wildwigec" target="_blank" rel="noopener" class="ig-item">
+                <img src="assets/instagram/post_01.jpg" alt="Coach Wild Instagram" loading="lazy">
+                <div class="ig-overlay"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
+            </a>
+            <a href="https://www.instagram.com/wildwigec" target="_blank" rel="noopener" class="ig-item">
+                <img src="assets/instagram/post_02.jpg" alt="Coach Wild Instagram" loading="lazy">
+                <div class="ig-overlay"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
+            </a>
+            <a href="https://www.instagram.com/wildwigec" target="_blank" rel="noopener" class="ig-item">
+                <img src="assets/instagram/post_03.jpg" alt="Coach Wild Instagram" loading="lazy">
+                <div class="ig-overlay"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
+            </a>
+            <a href="https://www.instagram.com/wildwigec" target="_blank" rel="noopener" class="ig-item">
+                <img src="assets/instagram/post_04.jpg" alt="Coach Wild Instagram" loading="lazy">
+                <div class="ig-overlay"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
+            </a>
+            <a href="https://www.instagram.com/wildwigec" target="_blank" rel="noopener" class="ig-item">
+                <img src="assets/instagram/post_05.jpg" alt="Coach Wild Instagram" loading="lazy">
+                <div class="ig-overlay"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
+            </a>
+            <a href="https://www.instagram.com/wildwigec" target="_blank" rel="noopener" class="ig-item">
+                <img src="assets/instagram/post_06.jpg" alt="Coach Wild Instagram" loading="lazy">
+                <div class="ig-overlay"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
+            </a>
+            <a href="https://www.instagram.com/wildwigec" target="_blank" rel="noopener" class="ig-item">
+                <img src="assets/instagram/post_07.jpg" alt="Coach Wild Instagram" loading="lazy">
+                <div class="ig-overlay"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
+            </a>
+        </div>
+
+        <div style="text-align:center;">
+            <a href="https://www.instagram.com/wildwigec" target="_blank" rel="noopener" class="ig-follow-btn">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                <span data-i18n="ig_follow">Follow @wildwigec</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- =================== TESTIMONIALS =================== -->
+<section class="section reveal" id="testimonials">
+    <div class="section-label" data-i18n="test_label">Testimonials</div>
+    <h2 class="section-title" data-i18n="test_title">What People Are Saying</h2>
+    <p class="section-desc" data-i18n="test_desc">Real stories from members of the team.</p>
+
+    <div class="testimonials-grid">
+        <div class="card testimonial-card">
+            <div class="testimonial-quote-mark">&ldquo;</div>
+            <p class="testimonial-text" data-i18n="test1_text">I was skeptical at first, but Coach Wild walked me through everything step by step. Within my first month I made back my initial investment and then some. The products practically sell themselves once people try them.</p>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar" style="background: linear-gradient(135deg, #F59E0B, #EF4444); display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; font-size:16px;">TJ</div>
+                <div>
+                    <div class="testimonial-name">Tamara J.</div>
+                    <div class="testimonial-role" data-i18n="test1_role">Affiliate - Tampa, FL</div>
+                </div>
+            </div>
+        </div>
+        <div class="card testimonial-card">
+            <div class="testimonial-quote-mark">&ldquo;</div>
+            <p class="testimonial-text" data-i18n="test2_text">Mwen te konn travay 2 djob e mwen pat gen tan pou fanmi mwen. Depi mwen komanse ak Vital Health, mwen fè plis lajan nan yon semèn pase sa mwen te fè nan yon mwa. Coach Wild se yon vrè lidè ki bay ou tout sipò ou bezwen.</p>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar" style="background: linear-gradient(135deg, #8B5CF6, #EC4899); display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; font-size:16px;">MF</div>
+                <div>
+                    <div class="testimonial-name">Marie-Flore B.</div>
+                    <div class="testimonial-role" data-i18n="test2_role">Affiliate - Brooklyn, NY</div>
+                </div>
+            </div>
+        </div>
+        <div class="card testimonial-card">
+            <div class="testimonial-quote-mark">&ldquo;</div>
+            <p class="testimonial-text" data-i18n="test3_text">Yo soy madre soltera y buscaba algo flexible. En 3 semanas ya estaba ganando extra cada semana vendiendo los productos. Lo mejor es que la comunidad te apoya en todo. Recomiendo 100%.</p>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar" style="background: linear-gradient(135deg, #10B981, #3B82F6); display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; font-size:16px;">LC</div>
+                <div>
+                    <div class="testimonial-name">Lucia C.</div>
+                    <div class="testimonial-role" data-i18n="test3_role">Affiliate - Santo Domingo, RD</div>
+                </div>
+            </div>
+        </div>
+        <div class="card testimonial-card">
+            <div class="testimonial-quote-mark">&ldquo;</div>
+            <p class="testimonial-text" data-i18n="test4_text">My wife and I started together as a side hustle. Now we both quit our 9-to-5s. The nanotechnology products are legit — our customers keep reordering without us even asking. Best decision we ever made.</p>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar" style="background: linear-gradient(135deg, #0EA5E9, #6366F1); display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; font-size:16px;">KW</div>
+                <div>
+                    <div class="testimonial-name">Kevin W.</div>
+                    <div class="testimonial-role" data-i18n="test4_role">Silver Affiliate - Atlanta, GA</div>
+                </div>
+            </div>
+        </div>
+        <div class="card testimonial-card">
+            <div class="testimonial-quote-mark">&ldquo;</div>
+            <p class="testimonial-text" data-i18n="test5_text">I tried 3 other network marketing companies before this one. The difference? Vital Health owns the factory. Better products, bigger margins, and Coach Wild actually answers your messages at midnight. That's real leadership.</p>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar" style="background: linear-gradient(135deg, #D946EF, #F43F5E); display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; font-size:16px;">SN</div>
+                <div>
+                    <div class="testimonial-name">Stephanie N.</div>
+                    <div class="testimonial-role" data-i18n="test5_role">Gold Affiliate - Miami, FL</div>
+                </div>
+            </div>
+        </div>
+        <div class="card testimonial-card">
+            <div class="testimonial-quote-mark">&ldquo;</div>
+            <p class="testimonial-text" data-i18n="test6_text">Mwen se yon enfimye e mwen te toujou enterese nan sante natirel. Pwodui Vital Health yo vreman mache — mwen we rezilta nan kliyan mwen yo. Kounye a mwen fè plis lajan nan vann pwodui pase nan lopital!</p>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar" style="background: linear-gradient(135deg, #14B8A6, #A855F7); display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; font-size:16px;">JP</div>
+                <div>
+                    <div class="testimonial-name">Jean-Pierre L.</div>
+                    <div class="testimonial-role" data-i18n="test6_role">Affiliate - Montreal, CA</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =================== FAQ =================== -->
+<section class="section reveal" id="faq">
+    <div class="section-label" data-i18n="faq_label">FAQ</div>
+    <h2 class="section-title" data-i18n="faq_title">Common Questions</h2>
+    <p class="section-desc" data-i18n="faq_desc">Everything you need to know before getting started.</p>
+
+    <div class="faq-tabs">
+        <button class="faq-tab active" data-i18n="faq_tab_all" onclick="filterFaq('all', this)">All</button>
+        <button class="faq-tab" data-i18n="faq_tab_start" onclick="filterFaq('start', this)">Getting Started</button>
+        <button class="faq-tab" data-i18n="faq_tab_earn" onclick="filterFaq('earn', this)">Earnings</button>
+        <button class="faq-tab" data-i18n="faq_tab_product" onclick="filterFaq('product', this)">Products</button>
+    </div>
+
+    <div class="faq-list">
+        <div class="faq-item" data-category="start">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                <span data-i18n="faq1_q">How much does it cost to start?</span>
+                <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer"><p data-i18n="faq1_a">Right now, you can join as a Preferred Customer for just $2.22 with promo code MARCH222. The standard membership is $29.99/year. There are no mandatory large purchases.</p></div>
+        </div>
+        <div class="faq-item" data-category="start">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                <span data-i18n="faq2_q">Do I need experience?</span>
+                <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer"><p data-i18n="faq2_a">No experience needed. Coach Wild provides free personal coaching, training resources, live events, and a supportive team community. You'll never be alone on this journey.</p></div>
+        </div>
+        <div class="faq-item" data-category="earn">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                <span data-i18n="faq3_q">How do I earn money?</span>
+                <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer"><p data-i18n="faq3_a">Multiple ways: retail product sales (up to 80% profit margin), influencer bonuses (unlimited per month), team building commissions, rank advancement bonuses, car bonuses, and more. The company pays up to 80% of commissionable volume.</p></div>
+        </div>
+        <div class="faq-item" data-category="product">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                <span data-i18n="faq4_q">What makes this different from other companies?</span>
+                <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer"><p data-i18n="faq4_a">Vital Health Global owns its own manufacturing with 400+ employees. Most companies outsource production. This means higher quality products, faster innovation, and bigger profit margins for you as an affiliate.</p></div>
+        </div>
+        <div class="faq-item" data-category="earn">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                <span data-i18n="faq5_q">Can I do this part-time?</span>
+                <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer"><p data-i18n="faq5_a">Absolutely. Many successful affiliates started part-time while keeping their day job. You work at your own pace, on your own schedule. Even a few hours a week can generate meaningful extra income.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- =================== FINAL CTA =================== -->
+<section class="final-cta reveal">
+    <div class="final-cta-bg"></div>
+    <h2 data-i18n="final_title">Ready to Change Your Life?</h2>
+    <p data-i18n="final_desc">Take the first step. Send Coach Wild a message on WhatsApp and discover how you can start earning this week.</p>
+
+    <div class="countdown-bar">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <span data-i18n="countdown_label">Limited Promo:</span>
+        <span class="countdown-digits" id="countdownTimer">--:--:--</span>
+    </div>
+
+    <a href="https://api.whatsapp.com/send?phone=5168380237&text=Hi%20Coach%20Wild!%20I%27m%20ready%20to%20learn%20about%20the%20business%20opportunity!" class="cta-primary" target="_blank" rel="noopener" style="position:relative;z-index:1;">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span data-i18n="cta_final">Start Your Journey Now</span>
+    </a>
+</section>
+
+<!-- =================== FOOTER =================== -->
+<footer>
+    <div class="footer-socials">
+        <a href="https://www.instagram.com/wildwigec" target="_blank" rel="noopener" title="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://youtube.com/channel/UCOOShxc5CUthLXCIJZZWxkQ" target="_blank" rel="noopener" title="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=5168380237" target="_blank" rel="noopener" title="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+    </div>
+
+    <p class="footer-legal" data-i18n="disclaimer">
+        Income Disclaimer: Results vary. There are no guarantees of income. Success depends on individual effort, skills, and market conditions. This is not a guarantee of earnings. Vital Health Global does not guarantee any specific income level. Please review the full compensation plan and income disclosure before making any decisions.
+    </p>
+
+    <p style="font-size: 12px; color: var(--text-dim); margin-top: 16px;">&copy; 2026 Coach Wild | Wildwige Chauvet | Vital Health Global Independent Affiliate</p>
+</footer>
+
+<!-- =================== JAVASCRIPT =================== -->
+<script>
+// ============================================
+// TRANSLATIONS — EN / Kreyol / Espanol
+// ============================================
+const T = {
+    en: {
+        hero_badge: "Certified Business Coach",
+        hero_subtitle: "Your path to financial freedom starts with one conversation",
+        hero_highlight: "$1,000+ Per Week Potential",
+        cta_whatsapp: "Message Coach Wild",
+        cta_learn: "Learn How It Works",
+        trust_customers: "Customers Worldwide",
+        trust_countries: "Countries",
+        trust_margin: "Profit Margins",
+        trust_start: "To Get Started",
+        about_label: "About Coach Wild",
+        about_title: "Your Guide to Financial Freedom",
+        about_desc: "Wildwige Chauvet, known as Coach Wild, is a dedicated business coach helping people build sustainable income through Vital Health Global. With passion, expertise, and a proven system, she has helped dozens of entrepreneurs launch their own wellness businesses from scratch.",
+        achievement_text: "$200,000+ in Business Revenue",
+        achievement_sub: "Proven track record of success",
+        stat_team: "Growing",
+        stat_team_label: "Team Size",
+        stat_coaching: "Free",
+        stat_coaching_label: "Coaching & Training",
+        stat_products: "400+",
+        stat_products_label: "Employees Manufacturing",
+        stat_support: "24/7",
+        stat_support_label: "Community Support",
+        opp_label: "The Opportunity",
+        opp_title: "Why Vital Health Global?",
+        opp_desc: "Unlike other companies, Vital Health Global owns its own manufacturing with 400+ employees. This means better products, higher margins, and more money in YOUR pocket.",
+        b1_title: "Own Manufacturing",
+        b1_desc: "400+ employees, GMP-certified labs, no middleman. Quality you can trust, margins you can bank on.",
+        b2_title: "Up to 80% Margins",
+        b2_desc: "Industry-leading profit margins. Keep more of every sale compared to any other wellness company.",
+        b3_title: "Low Barrier to Entry",
+        b3_desc: "Start for just $2.22 with the current promotion. No big inventory, no risk, no pressure.",
+        b4_title: "Global Expansion",
+        b4_desc: "Active in 18+ countries and growing. Get in on the ground floor of the US expansion.",
+        b5_title: "Multiple Income Streams",
+        b5_desc: "Retail profits, influencer bonuses, team commissions, rank bonuses, car bonuses, and more.",
+        b6_title: "Free Training & Support",
+        b6_desc: "Coach Wild provides personal coaching, live events, and a community of winners to support your journey.",
+        prod_label: "Product Lines",
+        prod_title: "Premium Wellness Products",
+        prod_desc: "Clinically formulated with nanotechnology for maximum absorption. Products that sell themselves.",
+        p1_title: "Awaken",
+        p1_desc: "Energy and cognitive function. Start your day with clarity and focus.",
+        p2_title: "Detox",
+        p2_desc: "Cleanse and purify. Support your body's natural detoxification systems.",
+        p3_title: "Nourish",
+        p3_desc: "Complete nutrition. Fill the gaps in your diet with premium supplements.",
+        p4_title: "Restore",
+        p4_desc: "Recovery and renewal. Help your body heal and restore naturally.",
+        steps_label: "How It Works",
+        steps_title: "4 Simple Steps to Start Earning",
+        steps_desc: "Coach Wild makes it simple. Follow the proven system and start building your income.",
+        s1_title: "Message Coach Wild",
+        s1_desc: "Reach out on WhatsApp. Ask your questions. Get real answers from someone who's done it.",
+        s2_title: "Join for $2.22",
+        s2_desc: "Use promo code MARCH222 to enroll as a Preferred Customer for just $2.22. Zero risk.",
+        s3_title: "Get Trained",
+        s3_desc: "Access free coaching, live events, and a supportive community. Learn the proven system.",
+        s4_title: "Build & Earn",
+        s4_desc: "Start selling products, build your team, and watch your income grow week after week.",
+        video_label: "Watch & Learn",
+        video_title: "See the Vision",
+        video_desc: "Watch Coach Wild explain the opportunity in her own words.",
+        v1_title: "Earn $1000+ Extra Every Week with Coach Wild",
+        v2_title: "The Vital Health Global Opportunity",
+        ig_label: "Social Proof",
+        ig_title: "Follow Coach Wild",
+        ig_desc: "See the journey, the results, and the lifestyle on Instagram.",
+        ig_follow: "Follow @wildwigec",
+        test_label: "Testimonials",
+        test_title: "What People Are Saying",
+        test_desc: "Real stories from members of the team.",
+        test1_text: "I was skeptical at first, but Coach Wild walked me through everything step by step. Within my first month I made back my initial investment and then some. The products practically sell themselves once people try them.",
+        test1_role: "Affiliate - Tampa, FL",
+        test2_text: "I used to work 2 jobs and had no time for my family. Since I started with Vital Health, I make more in a week than I used to make in a month. Coach Wild is a true leader who gives you all the support you need.",
+        test2_role: "Affiliate - Brooklyn, NY",
+        test3_text: "I'm a single mom and was looking for something flexible. Within 3 weeks I was already earning extra every week selling the products. The best part is the community supports you in everything. I recommend it 100%.",
+        test3_role: "Affiliate - Santo Domingo, RD",
+        test4_text: "My wife and I started together as a side hustle. Now we both quit our 9-to-5s. The nanotechnology products are legit — our customers keep reordering without us even asking. Best decision we ever made.",
+        test4_role: "Silver Affiliate - Atlanta, GA",
+        test5_text: "I tried 3 other network marketing companies before this one. The difference? Vital Health owns the factory. Better products, bigger margins, and Coach Wild actually answers your messages at midnight. That's real leadership.",
+        test5_role: "Gold Affiliate - Miami, FL",
+        test6_text: "I'm a nurse and always been interested in natural health. Vital Health products actually work — I see results in my clients. Now I make more selling products than at the hospital!",
+        test6_role: "Affiliate - Montreal, CA",
+        faq_label: "FAQ",
+        faq_title: "Common Questions",
+        faq_desc: "Everything you need to know before getting started.",
+        faq_tab_all: "All",
+        faq_tab_start: "Getting Started",
+        faq_tab_earn: "Earnings",
+        faq_tab_product: "Products",
+        faq1_q: "How much does it cost to start?",
+        faq1_a: "Right now, you can join as a Preferred Customer for just $2.22 with promo code MARCH222. The standard membership is $29.99/year. There are no mandatory large purchases.",
+        faq2_q: "Do I need experience?",
+        faq2_a: "No experience needed. Coach Wild provides free personal coaching, training resources, live events, and a supportive team community. You'll never be alone on this journey.",
+        faq3_q: "How do I earn money?",
+        faq3_a: "Multiple ways: retail product sales (up to 80% profit margin), influencer bonuses (unlimited per month), team building commissions, rank advancement bonuses, car bonuses, and more.",
+        faq4_q: "What makes this different from other companies?",
+        faq4_a: "Vital Health Global owns its own manufacturing with 400+ employees. Most companies outsource production. This means higher quality products, faster innovation, and bigger profit margins for you.",
+        faq5_q: "Can I do this part-time?",
+        faq5_a: "Absolutely. Many successful affiliates started part-time while keeping their day job. You work at your own pace, on your own schedule.",
+        final_title: "Ready to Change Your Life?",
+        final_desc: "Take the first step. Send Coach Wild a message on WhatsApp and discover how you can start earning this week.",
+        countdown_label: "Limited Promo:",
+        cta_final: "Start Your Journey Now",
+        disclaimer: "Income Disclaimer: Results vary. There are no guarantees of income. Success depends on individual effort, skills, and market conditions. This is not a guarantee of earnings. Please review the full compensation plan before making any decisions."
+    },
+    ht: {
+        hero_badge: "Coach Biznis Sertifye",
+        hero_subtitle: "Chemen ou pou libete finansye komanse ak yon sel konvesasyon",
+        hero_highlight: "$1,000+ Chak Semen Potansyel",
+        cta_whatsapp: "Ekri Coach Wild",
+        cta_learn: "Aprann Kijan Li Mache",
+        trust_customers: "Kliyan nan Mond Lan",
+        trust_countries: "Peyi",
+        trust_margin: "Maj Benefis",
+        trust_start: "Pou Komanse",
+        about_label: "Sou Coach Wild",
+        about_title: "Gid Ou Pou Libete Finansye",
+        about_desc: "Wildwige Chauvet, ke yo konnen tankou Coach Wild, se yon coach biznis dedye k ap ede moun bati revni dirab atrave Vital Health Global. Ak pasyon, ekspertiz, ak yon sistem ki pwouve, li ede plizy antreprene lanse pwop biznis byenne yo depi nan zewo.",
+        achievement_text: "$200,000+ nan Revni Biznis",
+        achievement_sub: "Dosye siksè ki pwouve",
+        stat_team: "Ap Grandi",
+        stat_team_label: "Gwose Ekip",
+        stat_coaching: "Gratis",
+        stat_coaching_label: "Coaching & Fomasyon",
+        stat_products: "400+",
+        stat_products_label: "Anplwaye Manifakti",
+        stat_support: "24/7",
+        stat_support_label: "Sipo Kominote",
+        opp_label: "Opotinite A",
+        opp_title: "Poukisa Vital Health Global?",
+        opp_desc: "Kontreman ak lot konpayi, Vital Health Global posede pwop manifakti li ak 400+ anplwaye. Sa vle di pi bon pwodui, pi gwo maj, e plis lajan nan POCH OU.",
+        b1_title: "Pwop Manifakti",
+        b1_desc: "400+ anplwaye, laboratwa sertifye GMP, pa gen entemedye. Kalite ou ka fe konfyans, maj ou ka konte sou yo.",
+        b2_title: "Jiska 80% Maj",
+        b2_desc: "Maj benefis ki pi wo nan endistri a. Kenbe plis nan chak vant konpare ak nenpot lot konpayi byenne.",
+        b3_title: "Barye Antre Ba",
+        b3_desc: "Komanse pou selman $2.22 ak pwomosyon aktyel la. Pa gen gwo envante, pa gen risk, pa gen presyon.",
+        b4_title: "Ekspansyon Mondyal",
+        b4_desc: "Aktif nan 18+ peyi e k ap grandi. Antre nan etaj te a nan ekspansyon Ameriken an.",
+        b5_title: "Plizye Sous Revni",
+        b5_desc: "Pwofi nan vant, bonis enfluanse, komisyon ekip, bonis ran, bonis machin, e plis anko.",
+        b6_title: "Fomasyon & Sipo Gratis",
+        b6_desc: "Coach Wild bay coaching pesonel, evenman an direk, ak yon kominote ganyan pou sipote vwayaj ou.",
+        prod_label: "Liy Pwodui",
+        prod_title: "Pwodui Byenne Premium",
+        prod_desc: "Fomile klinikman ak nanoteknoloji pou absopsyon maksimon. Pwodui ki vann tet yo.",
+        p1_title: "Awaken",
+        p1_desc: "Eneji ak fonksyon kognitif. Komanse jounen ou ak klete ak konsantrasyon.",
+        p2_title: "Detox",
+        p2_desc: "Netwaye e pirifye. Sipote sistem detoksifikasyon natirel ko ou.",
+        p3_title: "Nourish",
+        p3_desc: "Nitrisyon konple. Ranpli vid nan rejim ou ak sipleman premium.",
+        p4_title: "Restore",
+        p4_desc: "Rekiperasyon ak renouvelman. Ede ko ou geri e restore natirelman.",
+        steps_label: "Kijan Li Mache",
+        steps_title: "4 Etap Senp Pou Komanse Touche",
+        steps_desc: "Coach Wild fe li senp. Swiv sistem ki pwouve a epi komanse bati revni ou.",
+        s1_title: "Ekri Coach Wild",
+        s1_desc: "Kontakte sou WhatsApp. Poze kesyon ou yo. Jwenn repons reyel nan men yon moun ki fe li.",
+        s2_title: "Antre pou $2.22",
+        s2_desc: "Sevi ak kod pwomo MARCH222 pou enskri kom Kliyan Prefere pou selman $2.22. Zewo risk.",
+        s3_title: "Resevwa Fomasyon",
+        s3_desc: "Gen akse a coaching gratis, evenman an direk, ak yon kominote ki sipote. Aprann sistem ki pwouve a.",
+        s4_title: "Bati & Touche",
+        s4_desc: "Komanse vann pwodui, bati ekip ou, e gade revni ou grandi semen apre semen.",
+        video_label: "Gade & Aprann",
+        video_title: "We Vizyon An",
+        video_desc: "Gade Coach Wild eksplike opotinite a nan pwop mo li.",
+        v1_title: "Touche $1000+ Chak Semen ak Coach Wild",
+        v2_title: "Opotinite Vital Health Global La",
+        ig_label: "Prèv Sosyal",
+        ig_title: "Swiv Coach Wild",
+        ig_desc: "Wè vwayaj la, rezilta yo, e estil lavi a sou Instagram.",
+        ig_follow: "Swiv @wildwigec",
+        test_label: "Temwanyaj",
+        test_title: "Kisa Moun Ap Di",
+        test_desc: "Vrè istwa ki soti nan manm ekip la.",
+        test1_text: "Mwen te gen dout nan komansman, men Coach Wild te gide mwen etap pa etap. Nan premye mwa a mwen te fè tounen envestisman mwen an e plis ankò. Pwodui yo vann tèt yo yon fwa moun eseye yo.",
+        test1_role: "Afilye - Tampa, FL",
+        test2_text: "Mwen te konn travay 2 djob e mwen pat gen tan pou fanmi mwen. Depi mwen komanse ak Vital Health, mwen fè plis lajan nan yon semèn pase sa mwen te fè nan yon mwa. Coach Wild se yon vrè lidè ki bay ou tout sipò ou bezwen.",
+        test2_role: "Afilye - Brooklyn, NY",
+        test3_text: "Mwen se yon manman selibatè e mwen t ap chache yon bagay fleksib. Nan 3 semèn mwen te deja ap touche lajan extra chak semèn nan vann pwodui yo. Pi bon pati a se kominote a ki sipòte ou nan tout bagay. Mwen rekòmande 100%.",
+        test3_role: "Afilye - Santo Domingo, RD",
+        test4_text: "Madanm mwen ak mwen te komanse ansanm kòm yon ti biznis sou kote. Kounye a nou toude kite travay 9-a-5 nou. Pwodui nanoteknoloji yo lejit — kliyan nou yo kontinye kòmande san nou pa menm mande. Pi bon desizyon nou te janm pran.",
+        test4_role: "Afilye Silver - Atlanta, GA",
+        test5_text: "Mwen te eseye 3 lòt konpayi network marketing anvan sa a. Diferans lan? Vital Health posede faktori a. Pi bon pwodui, pi gwo maj, e Coach Wild repònn mesaj ou menm a minwi. Sa se vrè lidèchip.",
+        test5_role: "Afilye Gold - Miami, FL",
+        test6_text: "Mwen se yon enfimyè e mwen te toujou enterese nan sante natirèl. Pwodui Vital Health yo vrèman mache — mwen wè rezilta nan kliyan mwen yo. Kounye a mwen fè plis lajan nan vann pwodui pase nan lopital!",
+        test6_role: "Afilye - Montreal, CA",
+        faq_label: "FAQ",
+        faq_title: "Kesyon Komen",
+        faq_desc: "Tout sa ou bezwen konnen anvan ou komanse.",
+        faq_tab_all: "Tout",
+        faq_tab_start: "Kòmanse",
+        faq_tab_earn: "Revni",
+        faq_tab_product: "Pwodui",
+        faq1_q: "Konbyen li koute pou komanse?",
+        faq1_a: "Kounye a, ou ka antre kom Kliyan Prefere pou selman $2.22 ak kod pwomo MARCH222. Kotizasyon estanda a se $29.99/ane. Pa gen achte obligatwa gwo.",
+        faq2_q: "Eske mwen bezwen eksperyans?",
+        faq2_a: "Pa gen eksperyans nesese. Coach Wild bay coaching pesonel gratis, resous fomasyon, evenman an direk, ak yon kominote ekip ki sipote. Ou p ap janm poukont ou nan vwayaj sa a.",
+        faq3_q: "Kijan mwen touche lajan?",
+        faq3_a: "Plizye fason: vant pwodui (jiska 80% maj benefis), bonis enfluanse (ilimite pa mwa), komisyon nan bati ekip, bonis avansman ran, bonis machin, e plis anko.",
+        faq4_q: "Kisa ki fe sa diferan ak lot konpayi?",
+        faq4_a: "Vital Health Global posede pwop manifakti li ak 400+ anplwaye. Pifo konpayi fe sou-tretans pwodiksyon. Sa vle di pwodui ki pi bon kalite, inovasyon pi vit, e pi gwo maj benefis pou ou.",
+        faq5_q: "Eske mwen ka fe sa a tan pasye?",
+        faq5_a: "Absoliman. Anpil afilye sikse te komanse a tan pasyel pandan yo te kenbe travay jounen yo. Ou travay nan pwop vites ou, nan pwop ore ou.",
+        final_title: "Pre Pou Chanje Lavi Ou?",
+        final_desc: "Fe premye pa a. Voye Coach Wild yon mesaj sou WhatsApp epi dekouvri kijan ou ka komanse touche semen sa a.",
+        countdown_label: "Pwomo Limite:",
+        cta_final: "Komanse Vwayaj Ou Kounye a",
+        disclaimer: "Avetisman sou Revni: Rezilta varye. Pa gen garanti revni. Sikse depann de efo endividyel, konpetans, ak kondisyon mache. Sa a se pa yon garanti sale. Tanpri revize plan konpansasyon konple a anvan ou pran nenpot desizyon."
+    },
+    es: {
+        hero_badge: "Coach de Negocios Certificada",
+        hero_subtitle: "Tu camino hacia la libertad financiera comienza con una conversacion",
+        hero_highlight: "$1,000+ Por Semana Potencial",
+        cta_whatsapp: "Escribe a Coach Wild",
+        cta_learn: "Aprende Como Funciona",
+        trust_customers: "Clientes en el Mundo",
+        trust_countries: "Paises",
+        trust_margin: "Margenes de Ganancia",
+        trust_start: "Para Empezar",
+        about_label: "Sobre Coach Wild",
+        about_title: "Tu Guia Hacia la Libertad Financiera",
+        about_desc: "Wildwige Chauvet, conocida como Coach Wild, es una coach de negocios dedicada que ayuda a las personas a construir ingresos sostenibles a traves de Vital Health Global. Con pasion, experiencia y un sistema probado, ha ayudado a docenas de emprendedores a lanzar sus propios negocios de bienestar desde cero.",
+        achievement_text: "$200,000+ en Ingresos de Negocio",
+        achievement_sub: "Historial comprobado de exito",
+        stat_team: "Creciendo",
+        stat_team_label: "Tamano del Equipo",
+        stat_coaching: "Gratis",
+        stat_coaching_label: "Coaching y Capacitacion",
+        stat_products: "400+",
+        stat_products_label: "Empleados en Manufactura",
+        stat_support: "24/7",
+        stat_support_label: "Soporte Comunitario",
+        opp_label: "La Oportunidad",
+        opp_title: "Por Que Vital Health Global?",
+        opp_desc: "A diferencia de otras empresas, Vital Health Global posee su propia manufactura con mas de 400 empleados. Esto significa mejores productos, mayores margenes y mas dinero en TU bolsillo.",
+        b1_title: "Manufactura Propia",
+        b1_desc: "400+ empleados, laboratorios certificados GMP, sin intermediarios. Calidad en la que puedes confiar, margenes con los que puedes contar.",
+        b2_title: "Hasta 80% de Margen",
+        b2_desc: "Margenes de ganancia lideres en la industria. Queda con mas de cada venta comparado con cualquier otra empresa de bienestar.",
+        b3_title: "Barrera de Entrada Baja",
+        b3_desc: "Comienza por solo $2.22 con la promocion actual. Sin gran inventario, sin riesgo, sin presion.",
+        b4_title: "Expansion Global",
+        b4_desc: "Activo en mas de 18 paises y creciendo. Entra en la planta baja de la expansion en EE.UU.",
+        b5_title: "Multiples Fuentes de Ingreso",
+        b5_desc: "Ganancias por ventas, bonos de influencer, comisiones de equipo, bonos de rango, bonos de auto y mas.",
+        b6_title: "Capacitacion y Soporte Gratis",
+        b6_desc: "Coach Wild brinda coaching personal, eventos en vivo y una comunidad de ganadores para apoyar tu camino.",
+        prod_label: "Lineas de Productos",
+        prod_title: "Productos de Bienestar Premium",
+        prod_desc: "Formulados clinicamente con nanotecnologia para maxima absorcion. Productos que se venden solos.",
+        p1_title: "Awaken",
+        p1_desc: "Energia y funcion cognitiva. Comienza tu dia con claridad y enfoque.",
+        p2_title: "Detox",
+        p2_desc: "Limpieza y purificacion. Apoya los sistemas de desintoxicacion natural de tu cuerpo.",
+        p3_title: "Nourish",
+        p3_desc: "Nutricion completa. Llena los vacios en tu dieta con suplementos premium.",
+        p4_title: "Restore",
+        p4_desc: "Recuperacion y renovacion. Ayuda a tu cuerpo a sanar y restaurarse naturalmente.",
+        steps_label: "Como Funciona",
+        steps_title: "4 Pasos Simples Para Empezar a Ganar",
+        steps_desc: "Coach Wild lo hace simple. Sigue el sistema probado y comienza a construir tus ingresos.",
+        s1_title: "Escribe a Coach Wild",
+        s1_desc: "Contacta por WhatsApp. Haz tus preguntas. Obten respuestas reales de alguien que lo ha hecho.",
+        s2_title: "Unete por $2.22",
+        s2_desc: "Usa el codigo de promocion MARCH222 para inscribirte como Cliente Preferido por solo $2.22. Cero riesgo.",
+        s3_title: "Recibe Capacitacion",
+        s3_desc: "Accede a coaching gratuito, eventos en vivo y una comunidad de apoyo. Aprende el sistema probado.",
+        s4_title: "Construye y Gana",
+        s4_desc: "Comienza a vender productos, construye tu equipo y observa como tus ingresos crecen semana tras semana.",
+        video_label: "Mira y Aprende",
+        video_title: "Ve la Vision",
+        video_desc: "Mira a Coach Wild explicar la oportunidad en sus propias palabras.",
+        v1_title: "Gana $1000+ Extra Cada Semana con Coach Wild",
+        v2_title: "La Oportunidad de Vital Health Global",
+        ig_label: "Prueba Social",
+        ig_title: "Sigue a Coach Wild",
+        ig_desc: "Mira el camino, los resultados y el estilo de vida en Instagram.",
+        ig_follow: "Seguir @wildwigec",
+        test_label: "Testimonios",
+        test_title: "Lo Que Dice La Gente",
+        test_desc: "Historias reales de miembros del equipo.",
+        test1_text: "Al principio tenia dudas, pero Coach Wild me guio paso a paso. En mi primer mes recupere mi inversion y mas. Los productos se venden solos una vez que la gente los prueba.",
+        test1_role: "Afiliada - Tampa, FL",
+        test2_text: "Yo trabajaba en 2 empleos y no tenia tiempo para mi familia. Desde que empece con Vital Health, gano mas en una semana que lo que ganaba en un mes. Coach Wild es una verdadera lider que te da todo el apoyo que necesitas.",
+        test2_role: "Afiliada - Brooklyn, NY",
+        test3_text: "Yo soy madre soltera y buscaba algo flexible. En 3 semanas ya estaba ganando extra cada semana vendiendo los productos. Lo mejor es que la comunidad te apoya en todo. Recomiendo 100%.",
+        test3_role: "Afiliada - Santo Domingo, RD",
+        test4_text: "Mi esposa y yo empezamos juntos como un negocio secundario. Ahora los dos dejamos nuestros trabajos de 9 a 5. Los productos con nanotecnologia son legitimos — nuestros clientes siguen pidiendo sin que les digamos. La mejor decision que hemos tomado.",
+        test4_role: "Afiliado Silver - Atlanta, GA",
+        test5_text: "Probe 3 otras companias de network marketing antes de esta. La diferencia? Vital Health es duena de la fabrica. Mejores productos, mejores margenes, y Coach Wild te contesta los mensajes hasta a medianoche. Eso es liderazgo real.",
+        test5_role: "Afiliada Gold - Miami, FL",
+        test6_text: "Soy enfermero y siempre me intereso la salud natural. Los productos de Vital Health realmente funcionan — veo resultados en mis clientes. Ahora gano mas vendiendo productos que en el hospital!",
+        test6_role: "Afiliado - Montreal, CA",
+        faq_label: "Preguntas Frecuentes",
+        faq_title: "Preguntas Comunes",
+        faq_desc: "Todo lo que necesitas saber antes de comenzar.",
+        faq_tab_all: "Todas",
+        faq_tab_start: "Empezar",
+        faq_tab_earn: "Ganancias",
+        faq_tab_product: "Productos",
+        faq1_q: "Cuanto cuesta comenzar?",
+        faq1_a: "Ahora mismo, puedes unirte como Cliente Preferido por solo $2.22 con el codigo promocional MARCH222. La membresia estandar es $29.99/ano. No hay compras grandes obligatorias.",
+        faq2_q: "Necesito experiencia?",
+        faq2_a: "No se necesita experiencia. Coach Wild brinda coaching personal gratuito, recursos de capacitacion, eventos en vivo y una comunidad de equipo solidaria. Nunca estaras solo en este camino.",
+        faq3_q: "Como gano dinero?",
+        faq3_a: "De multiples maneras: ventas de productos (hasta 80% de margen), bonos de influencer (ilimitados por mes), comisiones por construccion de equipo, bonos de avance de rango, bonos de auto y mas.",
+        faq4_q: "Que hace esto diferente de otras empresas?",
+        faq4_a: "Vital Health Global posee su propia manufactura con mas de 400 empleados. La mayoria de las empresas tercerizan la produccion. Esto significa productos de mayor calidad y mayores margenes de ganancia para ti.",
+        faq5_q: "Puedo hacer esto a tiempo parcial?",
+        faq5_a: "Absolutamente. Muchos afiliados exitosos comenzaron a tiempo parcial mientras mantenian su trabajo diario. Trabajas a tu propio ritmo, en tu propio horario.",
+        final_title: "Listo Para Cambiar Tu Vida?",
+        final_desc: "Da el primer paso. Envia a Coach Wild un mensaje por WhatsApp y descubre como puedes empezar a ganar esta semana.",
+        countdown_label: "Promo Limitada:",
+        cta_final: "Comienza Tu Camino Ahora",
+        disclaimer: "Aviso de Ingresos: Los resultados varian. No hay garantias de ingresos. El exito depende del esfuerzo individual, habilidades y condiciones del mercado. Esto no es una garantia de ganancias. Por favor revisa el plan de compensacion completo antes de tomar cualquier decision."
+    }
+};
+
+// ============================================
+// LANGUAGE SWITCHING
+// ============================================
+let currentLang = localStorage.getItem('vhg_lang') || 'en';
+
+function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('vhg_lang', lang);
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (T[lang] && T[lang][key]) {
+            el.textContent = T[lang][key];
+        }
+    });
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.toLowerCase().includes(lang === 'en' ? 'english' : lang === 'ht' ? 'kreyol' : 'espanol')) {
+            btn.classList.add('active');
+        }
+    });
+
+    document.documentElement.lang = lang === 'ht' ? 'ht' : lang === 'es' ? 'es' : 'en';
+}
+
+// ============================================
+// FAQ ACCORDION
+// ============================================
+function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+}
+
+// FAQ Category Filter
+function filterFaq(cat, btn) {
+    document.querySelectorAll('.faq-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.faq-item').forEach(item => {
+        if (cat === 'all' || item.dataset.category === cat) {
+            item.style.display = '';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+
+// ============================================
+// SCROLL REVEAL ANIMATIONS
+// ============================================
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ============================================
+// COUNTER ANIMATION (Trust Bar)
+// ============================================
+let counterDone = false;
+const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !counterDone) {
+            counterDone = true;
+            animateCounters();
+        }
+    });
+}, { threshold: 0.5 });
+
+const trustBar = document.querySelector('.trust-bar');
+if (trustBar) counterObserver.observe(trustBar);
+
+function animateCounters() {
+    document.querySelectorAll('.trust-item .number').forEach(el => {
+        const target = el.textContent;
+        const hasK = target.includes('K');
+        const hasPercent = target.includes('%');
+        const hasDollar = target.includes('$');
+        const hasPlus = target.includes('+');
+
+        let numStr = target.replace(/[^0-9.]/g, '');
+        let num = parseFloat(numStr);
+        if (hasK) num = num; // keep as-is for display
+
+        const isDecimal = numStr.includes('.');
+        const duration = 2000;
+        const startTime = performance.now();
+
+        function update(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+            const current = num * eased;
+
+            let display = '';
+            if (hasDollar) display += '$';
+            if (isDecimal) {
+                display += current.toFixed(2);
+            } else {
+                display += Math.round(current);
+            }
+            if (hasK) display += 'K';
+            if (hasPlus) display += '+';
+            if (hasPercent) display += '%';
+
+            el.textContent = display;
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            }
+        }
+
+        requestAnimationFrame(update);
+    });
+}
+
+// ============================================
+// SCROLL PROGRESS BAR
+// ============================================
+function updateScrollProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    document.getElementById('scrollProgress').style.width = progress + '%';
+}
+
+// ============================================
+// SCROLL TO TOP BUTTON
+// ============================================
+function updateScrollTop() {
+    const btn = document.getElementById('scrollTop');
+    if (window.scrollY > 600) {
+        btn.classList.add('show');
+    } else {
+        btn.classList.remove('show');
+    }
+}
+
+// Combined scroll handler
+window.addEventListener('scroll', () => {
+    updateScrollProgress();
+    updateScrollTop();
+}, { passive: true });
+
+// ============================================
+// PARTICLE CANVAS ANIMATION
+// ============================================
+(function() {
+    const canvas = document.getElementById('particleCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let w, h;
+    const PARTICLE_COUNT = 60;
+    const CONNECT_DIST = 120;
+    let animId;
+
+    function resize() {
+        const hero = canvas.parentElement;
+        w = canvas.width = hero.offsetWidth;
+        h = canvas.height = hero.offsetHeight;
+    }
+
+    function createParticles() {
+        particles = [];
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
+            particles.push({
+                x: Math.random() * w,
+                y: Math.random() * h,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                r: Math.random() * 2 + 1,
+                alpha: Math.random() * 0.5 + 0.3
+            });
+        }
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, w, h);
+
+        // Draw connections
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < CONNECT_DIST) {
+                    const alpha = (1 - dist / CONNECT_DIST) * 0.15;
+                    ctx.strokeStyle = 'rgba(74, 222, 128, ' + alpha + ')';
+                    ctx.lineWidth = 0.5;
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                }
+            }
+        }
+
+        // Draw particles
+        for (let p of particles) {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(74, 222, 128, ' + p.alpha + ')';
+            ctx.fill();
+
+            // Move
+            p.x += p.vx;
+            p.y += p.vy;
+
+            // Bounce off edges
+            if (p.x < 0 || p.x > w) p.vx *= -1;
+            if (p.y < 0 || p.y > h) p.vy *= -1;
+        }
+
+        animId = requestAnimationFrame(draw);
+    }
+
+    resize();
+    createParticles();
+    draw();
+
+    window.addEventListener('resize', () => {
+        resize();
+        createParticles();
+    });
+})();
+
+// ============================================
+// COUNTDOWN TIMER (resets daily)
+// ============================================
+function updateCountdown() {
+    const now = new Date();
+    const end = new Date(now);
+    end.setHours(23, 59, 59, 999);
+    const diff = end - now;
+
+    const hrs = Math.floor(diff / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    const secs = Math.floor((diff % 60000) / 1000);
+
+    const el = document.getElementById('countdownTimer');
+    if (el) {
+        el.textContent = String(hrs).padStart(2, '0') + ':' + String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
+    }
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// ============================================
+// SOCIAL PROOF POPUPS (Non-repeating, randomized)
+// ============================================
+(function() {
+    const people = [
+        // Haitian names
+        { name: "Marie J.", initials: "MJ", loc: "Miami, FL" },
+        { name: "Jean-Pierre L.", initials: "JP", loc: "Brooklyn, NY" },
+        { name: "Fabiola R.", initials: "FR", loc: "Orlando, FL" },
+        { name: "Dieulande M.", initials: "DM", loc: "Boston, MA" },
+        { name: "Rosemene T.", initials: "RT", loc: "Fort Lauderdale, FL" },
+        { name: "Mackenson B.", initials: "MB", loc: "Newark, NJ" },
+        { name: "Guerline P.", initials: "GP", loc: "Atlanta, GA" },
+        { name: "Julmanie M.", initials: "JM", loc: "Tampa, FL" },
+        { name: "Yvonie C.", initials: "YC", loc: "Philadelphia, PA" },
+        { name: "Stephanie D.", initials: "SD", loc: "Houston, TX" },
+        // Spanish names
+        { name: "Ana C.", initials: "AC", loc: "Santo Domingo, RD" },
+        { name: "Carlos M.", initials: "CM", loc: "Mexico City, MX" },
+        { name: "Lucia R.", initials: "LR", loc: "Los Angeles, CA" },
+        { name: "Miguel S.", initials: "MS", loc: "Dallas, TX" },
+        { name: "Rosa V.", initials: "RV", loc: "Hermosillo, MX" },
+        // English names
+        { name: "Sandra W.", initials: "SW", loc: "Charlotte, NC" },
+        { name: "Keith R.", initials: "KR", loc: "Chicago, IL" },
+        { name: "Tamara N.", initials: "TN", loc: "Washington, DC" },
+        { name: "David L.", initials: "DL", loc: "Las Vegas, NV" },
+        { name: "Crystal H.", initials: "CH", loc: "Detroit, MI" },
+        { name: "Andre P.", initials: "AP", loc: "Montreal, CA" },
+        { name: "Jessica T.", initials: "JT", loc: "Raleigh, NC" },
+        { name: "Roberto G.", initials: "RG", loc: "Phoenix, AZ" },
+        { name: "Nadine B.", initials: "NB", loc: "Spring Valley, NY" },
+    ];
+
+    const actions = {
+        en: ["just joined the team", "just signed up", "just enrolled", "started their journey"],
+        ht: ["fèk antre nan ekip la", "fèk enskri", "fèk komanse vwayaj li"],
+        es: ["acaba de unirse al equipo", "acaba de inscribirse", "comenzó su viaje"]
+    };
+
+    const timeTexts = {
+        en: [" just now", "1 min ago", "2 min ago", "3 min ago", "5 min ago", "8 min ago", "12 min ago", "15 min ago", "22 min ago", "34 min ago", "1 hour ago", "2 hours ago"],
+        ht: ["kounye a", "1 min pase", "2 min pase", "3 min pase", "5 min pase", "8 min pase", "12 min pase", "22 min pase", "1 èdtan pase"],
+        es: ["ahora mismo", "hace 1 min", "hace 2 min", "hace 3 min", "hace 5 min", "hace 8 min", "hace 12 min", "hace 22 min", "hace 1 hora"]
+    };
+
+    const popup = document.getElementById('socialProof');
+    const spAvatar = document.getElementById('spAvatar');
+    const spName = document.getElementById('spName');
+    const spTime = document.getElementById('spTime');
+    const spLocation = document.getElementById('spLocation');
+
+    // Shuffle array (Fisher-Yates)
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    let queue = [];
+    let shown = new Set();
+    let timeoutId = null;
+    const SHOW_DURATION = 4500;
+
+    function getNextPerson() {
+        // If queue empty, reshuffle (but skip recently shown)
+        if (queue.length === 0) {
+            queue = shuffle(people.filter(p => !shown.has(p.name)));
+            // If all shown, reset
+            if (queue.length === 0) {
+                shown.clear();
+                queue = shuffle([...people]);
+            }
+        }
+        return queue.pop();
+    }
+
+    function showNotification() {
+        const person = getNextPerson();
+        shown.add(person.name);
+
+        const lang = currentLang || 'en';
+        const actionList = actions[lang] || actions.en;
+        const timeList = timeTexts[lang] || timeTexts.en;
+        const action = actionList[Math.floor(Math.random() * actionList.length)];
+        const time = timeList[Math.floor(Math.random() * timeList.length)];
+
+        spAvatar.textContent = person.initials;
+        spName.innerHTML = '<strong>' + person.name + '</strong> ' + action;
+        spTime.textContent = time;
+        spLocation.textContent = '- ' + person.loc;
+
+        // Show
+        popup.classList.add('show');
+
+        // Hide after duration
+        setTimeout(() => {
+            popup.classList.remove('show');
+            // Schedule next with random delay (15-45 seconds)
+            const nextDelay = 15000 + Math.floor(Math.random() * 30000);
+            timeoutId = setTimeout(showNotification, nextDelay);
+        }, SHOW_DURATION);
+    }
+
+    // Start after initial delay (8-15 seconds after page load)
+    const initialDelay = 8000 + Math.floor(Math.random() * 7000);
+    timeoutId = setTimeout(showNotification, initialDelay);
+
+    // Pause when tab not visible
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden && timeoutId) {
+            clearTimeout(timeoutId);
+            timeoutId = null;
+        } else if (!document.hidden && !timeoutId) {
+            timeoutId = setTimeout(showNotification, 5000 + Math.random() * 10000);
+        }
+    });
+})();
+
+// ============================================
+// INIT
+// ============================================
+document.addEventListener('DOMContentLoaded', () => {
+    setLang(currentLang);
+});
+</script>
+
+</body>
+</html>
