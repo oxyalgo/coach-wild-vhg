@@ -776,72 +776,88 @@
         }
 
         /* === PRODUCTS SECTION === */
-        .products-grid {
+        .products-showcase { display: flex; flex-direction: column; gap: 48px; }
+
+        .products-collections {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
         }
 
-        .product-card {
+        .collection-card {
             text-align: center;
-            padding: 40px 24px 32px;
-            position: relative;
+            border-radius: var(--radius);
+            background: var(--navy-card);
+            border: 1px solid var(--navy-border);
             overflow: hidden;
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
-            transform-style: preserve-3d;
-            perspective: 800px;
-        }
-
-        .product-card:hover {
-            transform: perspective(800px) rotateY(-3deg) rotateX(2deg) translateY(-6px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 40px rgba(74,222,128,0.1);
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient-cta);
-            opacity: 0;
             transition: var(--transition);
+            cursor: pointer;
         }
 
-        .product-card:hover::before { opacity: 1; }
-
-        .product-icon-wrap {
-            width: 72px;
-            height: 72px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(74,222,128,0.12), rgba(34,197,94,0.04));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            border: 1px solid rgba(74,222,128,0.15);
+        .collection-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-glow);
+            border-color: var(--primary);
         }
 
-        .product-icon-wrap svg {
-            width: 32px;
-            height: 32px;
-            stroke: var(--primary);
-            fill: none;
-            stroke-width: 1.5;
+        .collection-img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
         }
 
-        .product-card h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            letter-spacing: -0.02em;
+        .collection-info { padding: 16px; }
+        .collection-info h3 { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+        .collection-info p { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
+
+        .bestsellers-label {
+            font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+            color: var(--accent-gold); text-align: center; margin-bottom: 8px;
+        }
+        .bestsellers-title {
+            font-family: var(--font-display); font-size: 28px; color: var(--text);
+            text-align: center; margin-bottom: 24px;
         }
 
-        .product-card p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.6;
+        .bestsellers-scroll {
+            display: flex; gap: 20px; overflow-x: auto; padding-bottom: 16px;
+            scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin; scrollbar-color: var(--primary) var(--navy-card);
+        }
+        .bestsellers-scroll::-webkit-scrollbar { height: 6px; }
+        .bestsellers-scroll::-webkit-scrollbar-track { background: var(--navy-card); border-radius: 3px; }
+        .bestsellers-scroll::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+
+        .bestseller-card {
+            min-width: 220px; max-width: 220px; scroll-snap-align: start;
+            border-radius: var(--radius); background: var(--navy-card);
+            border: 1px solid var(--navy-border); overflow: hidden;
+            transition: var(--transition); flex-shrink: 0;
+        }
+        .bestseller-card:hover { transform: translateY(-4px); border-color: rgba(74,222,128,0.3); }
+
+        .bestseller-img {
+            width: 100%; aspect-ratio: 1; object-fit: contain;
+            background: linear-gradient(135deg, #0d1f30 0%, #152238 100%); padding: 12px;
+        }
+        .bestseller-info { padding: 14px; }
+        .bestseller-info h4 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+        .bestseller-info .bestseller-cat {
+            font-size: 11px; color: var(--primary); font-weight: 600;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .bestseller-badge {
+            display: inline-block; background: var(--gradient-gold); color: var(--navy);
+            font-size: 10px; font-weight: 700; padding: 3px 8px;
+            border-radius: var(--radius-full); margin-top: 8px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) { .products-collections { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 480px) {
+            .products-collections { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .bestseller-card { min-width: 180px; max-width: 180px; }
         }
 
         /* === STEPS SECTION === */
@@ -1561,7 +1577,7 @@
 
         @media (max-width: 480px) {
             .benefits-grid,
-            .products-grid,
+            .products-collections,
             .steps-grid {
                 grid-template-columns: 1fr;
             }
@@ -1873,34 +1889,109 @@
     <h2 class="section-title" data-i18n="prod_title">Premium Wellness Products</h2>
     <p class="section-desc" data-i18n="prod_desc">Clinically formulated with nanotechnology for maximum absorption. Products that sell themselves.</p>
 
-    <div class="products-grid">
-        <div class="card product-card">
-            <div class="product-icon-wrap">
-                <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="products-showcase">
+        <!-- 4 Collection Families -->
+        <div class="products-collections">
+            <div class="collection-card">
+                <img class="collection-img" src="assets/vhg/Awaken_Family.png" alt="Awaken Collection" loading="lazy">
+                <div class="collection-info">
+                    <h3 data-i18n="p1_title">Awaken</h3>
+                    <p data-i18n="p1_desc">Energy & cognitive focus</p>
+                </div>
             </div>
-            <h3 data-i18n="p1_title">Awaken</h3>
-            <p data-i18n="p1_desc">Energy and cognitive function. Start your day with clarity and focus.</p>
+            <div class="collection-card">
+                <img class="collection-img" src="assets/vhg/Detox_Family.png" alt="Detox Collection" loading="lazy">
+                <div class="collection-info">
+                    <h3 data-i18n="p2_title">Detox</h3>
+                    <p data-i18n="p2_desc">Cleanse & purify naturally</p>
+                </div>
+            </div>
+            <div class="collection-card">
+                <img class="collection-img" src="assets/vhg/Nourish_Family.png" alt="Nourish Collection" loading="lazy">
+                <div class="collection-info">
+                    <h3 data-i18n="p3_title">Nourish</h3>
+                    <p data-i18n="p3_desc">Complete daily nutrition</p>
+                </div>
+            </div>
+            <div class="collection-card">
+                <img class="collection-img" src="assets/vhg/Restore_Family.png" alt="Restore Collection" loading="lazy">
+                <div class="collection-info">
+                    <h3 data-i18n="p4_title">Restore</h3>
+                    <p data-i18n="p4_desc">Recovery & renewal</p>
+                </div>
+            </div>
         </div>
-        <div class="card product-card">
-            <div class="product-icon-wrap">
-                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+        <!-- Bestsellers Horizontal Scroll -->
+        <div>
+            <div class="bestsellers-label" data-i18n="best_label">Best Sellers</div>
+            <div class="bestsellers-title" data-i18n="best_title">What Customers Love Most</div>
+            <div class="bestsellers-scroll">
+                <div class="bestseller-card">
+                    <img class="bestseller-img" src="assets/vhg/Caf__neuroprotector_V_Neurokafe__f_rmula.jpg" alt="V-Neurokafe" loading="lazy">
+                    <div class="bestseller-info">
+                        <div class="bestseller-cat">Awaken</div>
+                        <h4>V-Neurokafe</h4>
+                        <span class="bestseller-badge">#1 Best Seller</span>
+                    </div>
+                </div>
+                <div class="bestseller-card">
+                    <img class="bestseller-img" src="assets/vhg/Vital_Health.webp" alt="V-Glutation" loading="lazy">
+                    <div class="bestseller-info">
+                        <div class="bestseller-cat">Restore</div>
+                        <h4>V-Glutation</h4>
+                        <span class="bestseller-badge">Fan Favorite</span>
+                    </div>
+                </div>
+                <div class="bestseller-card">
+                    <img class="bestseller-img" src="assets/vhg/LATTEKAFFE__Custom.png" alt="LatteKafe" loading="lazy">
+                    <div class="bestseller-info">
+                        <div class="bestseller-cat">Awaken</div>
+                        <h4>LatteKafe</h4>
+                        <span class="bestseller-badge">New</span>
+                    </div>
+                </div>
+                <div class="bestseller-card">
+                    <img class="bestseller-img" src="assets/vhg/V_CURCUMAX.png" alt="V-Curcumax" loading="lazy">
+                    <div class="bestseller-info">
+                        <div class="bestseller-cat">Restore</div>
+                        <h4>V-Curcumax</h4>
+                        <span class="bestseller-badge">Top Rated</span>
+                    </div>
+                </div>
+                <div class="bestseller-card">
+                    <img class="bestseller-img" src="assets/vhg/V_NITRO.webp" alt="V-Nitro" loading="lazy">
+                    <div class="bestseller-info">
+                        <div class="bestseller-cat">Awaken</div>
+                        <h4>V-Nitro</h4>
+                        <span class="bestseller-badge">Energy Boost</span>
+                    </div>
+                </div>
+                <div class="bestseller-card">
+                    <img class="bestseller-img" src="assets/vhg/NOURISH.png" alt="Nourish+" loading="lazy">
+                    <div class="bestseller-info">
+                        <div class="bestseller-cat">Nourish</div>
+                        <h4>Nourish+</h4>
+                        <span class="bestseller-badge">Essential</span>
+                    </div>
+                </div>
+                <div class="bestseller-card">
+                    <img class="bestseller-img" src="assets/vhg/PERFORMANCE.png" alt="Performance+" loading="lazy">
+                    <div class="bestseller-info">
+                        <div class="bestseller-cat">Awaken</div>
+                        <h4>Performance+</h4>
+                        <span class="bestseller-badge">Athletes' Pick</span>
+                    </div>
+                </div>
+                <div class="bestseller-card">
+                    <img class="bestseller-img" src="assets/vhg/V_ITALBOOST.webp" alt="V-ItalBoost" loading="lazy">
+                    <div class="bestseller-info">
+                        <div class="bestseller-cat">Nourish</div>
+                        <h4>V-ItalBoost</h4>
+                        <span class="bestseller-badge">Daily Must</span>
+                    </div>
+                </div>
             </div>
-            <h3 data-i18n="p2_title">Detox</h3>
-            <p data-i18n="p2_desc">Cleanse and purify. Support your body's natural detoxification systems.</p>
-        </div>
-        <div class="card product-card">
-            <div class="product-icon-wrap">
-                <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3 data-i18n="p3_title">Nourish</h3>
-            <p data-i18n="p3_desc">Complete nutrition. Fill the gaps in your diet with premium supplements.</p>
-        </div>
-        <div class="card product-card">
-            <div class="product-icon-wrap">
-                <svg viewBox="0 0 24 24"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3 data-i18n="p4_title">Restore</h3>
-            <p data-i18n="p4_desc">Recovery and renewal. Help your body heal and restore naturally.</p>
         </div>
     </div>
 </section>
@@ -2250,13 +2341,15 @@ const T = {
         prod_title: "Premium Wellness Products",
         prod_desc: "Clinically formulated with nanotechnology for maximum absorption. Products that sell themselves.",
         p1_title: "Awaken",
-        p1_desc: "Energy and cognitive function. Start your day with clarity and focus.",
+        p1_desc: "Energy & cognitive focus",
         p2_title: "Detox",
-        p2_desc: "Cleanse and purify. Support your body's natural detoxification systems.",
+        p2_desc: "Cleanse & purify naturally",
         p3_title: "Nourish",
-        p3_desc: "Complete nutrition. Fill the gaps in your diet with premium supplements.",
+        p3_desc: "Complete daily nutrition",
         p4_title: "Restore",
-        p4_desc: "Recovery and renewal. Help your body heal and restore naturally.",
+        p4_desc: "Recovery & renewal",
+        best_label: "Best Sellers",
+        best_title: "What Customers Love Most",
         steps_label: "How It Works",
         steps_title: "4 Simple Steps to Start Earning",
         steps_desc: "Coach Wild makes it simple. Follow the proven system and start building your income.",
@@ -2357,13 +2450,15 @@ const T = {
         prod_title: "Pwodui Byenne Premium",
         prod_desc: "Fomile klinikman ak nanoteknoloji pou absopsyon maksimon. Pwodui ki vann tet yo.",
         p1_title: "Awaken",
-        p1_desc: "Eneji ak fonksyon kognitif. Komanse jounen ou ak klete ak konsantrasyon.",
+        p1_desc: "Eneji & konsantrasyon",
         p2_title: "Detox",
-        p2_desc: "Netwaye e pirifye. Sipote sistem detoksifikasyon natirel ko ou.",
+        p2_desc: "Netwaye & pirifye natirelman",
         p3_title: "Nourish",
-        p3_desc: "Nitrisyon konple. Ranpli vid nan rejim ou ak sipleman premium.",
+        p3_desc: "Nitrisyon konple chak jou",
         p4_title: "Restore",
-        p4_desc: "Rekiperasyon ak renouvelman. Ede ko ou geri e restore natirelman.",
+        p4_desc: "Rekiperasyon & renouvelman",
+        best_label: "Pi Bon Vandè",
+        best_title: "Sa Kliyan Yo Renmen Plis",
         steps_label: "Kijan Li Mache",
         steps_title: "4 Etap Senp Pou Komanse Touche",
         steps_desc: "Coach Wild fe li senp. Swiv sistem ki pwouve a epi komanse bati revni ou.",
@@ -2464,13 +2559,15 @@ const T = {
         prod_title: "Productos de Bienestar Premium",
         prod_desc: "Formulados clinicamente con nanotecnologia para maxima absorcion. Productos que se venden solos.",
         p1_title: "Awaken",
-        p1_desc: "Energia y funcion cognitiva. Comienza tu dia con claridad y enfoque.",
+        p1_desc: "Energia y enfoque cognitivo",
         p2_title: "Detox",
-        p2_desc: "Limpieza y purificacion. Apoya los sistemas de desintoxicacion natural de tu cuerpo.",
+        p2_desc: "Limpieza y purificacion natural",
         p3_title: "Nourish",
-        p3_desc: "Nutricion completa. Llena los vacios en tu dieta con suplementos premium.",
+        p3_desc: "Nutricion completa diaria",
         p4_title: "Restore",
-        p4_desc: "Recuperacion y renovacion. Ayuda a tu cuerpo a sanar y restaurarse naturalmente.",
+        p4_desc: "Recuperacion y renovacion",
+        best_label: "Mas Vendidos",
+        best_title: "Lo Que Mas Aman Los Clientes",
         steps_label: "Como Funciona",
         steps_title: "4 Pasos Simples Para Empezar a Ganar",
         steps_desc: "Coach Wild lo hace simple. Sigue el sistema probado y comienza a construir tus ingresos.",
